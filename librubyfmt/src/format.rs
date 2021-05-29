@@ -479,6 +479,11 @@ pub fn format_rescue(ps: &mut dyn ConcreteParserState, rescue_part: Option<Rescu
                 ps.with_start_of_line(
                     false,
                     Box::new(|ps| {
+                        if class.is_none() && capture.is_none() {
+                            ps.wind_line_forward();
+                            ps.wind_line_forward();
+                            return;
+                        }
                         let cs = class.is_some();
                         if cs || capture.is_some() {
                             ps.emit_space();

@@ -1,0 +1,4 @@
+./lib/concurrent-ruby/concurrent/version.rb,17deabe72effcdfa5a9877f882518064
+./lib/concurrent-ruby/concurrent/ivar.rb,c89082b48e422412ee58b221fd309e41
+./lib/concurrent-ruby/concurrent/atomic_reference/numeric_cas_wrapper.rb,669b99e3eac134e17cfac32fea333971
+./lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb,5bdea5429c1d3a5271394fc693c4cdca

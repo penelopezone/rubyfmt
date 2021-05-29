@@ -23,11 +23,11 @@ submodules:
 	git submodule init
 	git submodule update
 
-target/c_main_debug: target/debug/deps/librubyfmt-*.a main.c
-	clang -O3 main.c $< $(LDFLAGS) -o $@
+target/c_main_debug: target/debug/deps/librubyfmt-*.a src/main.c
+	clang -O3 src/main.c $< $(LDFLAGS) -o $@
 
-target/c_main_release: target/release/deps/librubyfmt-*.a main.c
-	clang -O3 main.c $< $(LDFLAGS) -o $@
+target/c_main_release: target/release/deps/librubyfmt-*.a src/main.c
+	clang -O3 src/main.c $< $(LDFLAGS) -o $@
 
 target/release/deps/librubyfmt-*.a: release
 

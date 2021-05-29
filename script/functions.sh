@@ -16,12 +16,18 @@ f_rubyfmt() {
 
 
 diff_files() {
-    ACTUAL=$1
-    EXPECTED=$2
+    IDEMPOTENCY=$1
+    ACTUAL=$2
+    EXPECTED=$3
 
     if ! diff -u "$ACTUAL" "$EXPECTED"
     then
-        echo "got diff between formated formatted actual and expected"
+        if [[ $IDEMPOTENCY == "i" ]]
+        then
+            echo "got idempotent diff"
+        else
+            echo "got diff between formated formatted actual and expected"
+        fi
         exit 1
     fi
 }
@@ -38,11 +44,11 @@ test_fixtures_folder() {
 
       ## Test if the formatting works as expected
       time f_rubyfmt "$actual_file" > /tmp/out.rb
-      diff_files /tmp/out.rb "$expected_file"
+      diff_files o /tmp/out.rb "$expected_file"
 
       ## Test if the formatting is idempotent
       time f_rubyfmt "$expected_file" > /tmp/out.rb
-      diff_files /tmp/out.rb "$expected_file"
+      diff_files i /tmp/out.rb "$expected_file"
     done
 
     ## Recurse over ruby version dirs

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "./librubyfmt/include/rubyfmt.h"
+#include "../librubyfmt/include/rubyfmt.h"
 
 int main() {
     int buf_size = 1024;

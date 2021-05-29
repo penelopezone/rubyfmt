@@ -12,7 +12,7 @@ test_single_file_stdout() {
 
     f_rubyfmt a_ruby_file.rb > out.rb
 
-    diff_files out.rb expected.rb
+    diff_files o out.rb expected.rb
     )
 }
 
@@ -24,7 +24,7 @@ test_stdin_stdout() {
 
     echo "a 1,2,3" | f_rubyfmt > out.rb
 
-    diff_files out.rb expected.rb
+    diff_files o out.rb expected.rb
     )
 }
 
@@ -40,8 +40,8 @@ test_dir_no_i_flag() {
 
     f_rubyfmt bees/
 
-    diff_files bees/a_ruby_file_1.rb expected_1.rb
-    diff_files bees/a_ruby_file_2.rb expected_2.rb
+    diff_files o bees/a_ruby_file_1.rb expected_1.rb
+    diff_files o bees/a_ruby_file_2.rb expected_2.rb
     )
 }
 
@@ -63,10 +63,10 @@ test_i_flag() {
 
     f_rubyfmt -i bees/ cows.rb
 
-    diff_files bees/a_ruby_file_1.rb expected_1.rb
-    diff_files bees/a_ruby_file_2.rb expected_2.rb
-    diff_files bees/sub/a_ruby_file_3.rb expected_3.rb
-    diff_files cows.rb expected_4.rb
+    diff_files o bees/a_ruby_file_1.rb expected_1.rb
+    diff_files o bees/a_ruby_file_2.rb expected_2.rb
+    diff_files o bees/sub/a_ruby_file_3.rb expected_3.rb
+    diff_files o cows.rb expected_4.rb
     )
 }
 
